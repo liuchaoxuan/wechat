@@ -417,7 +417,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</div>
 	<div class="tanchu2 tanchu">
 		<div class="back">您确定要退出吗？</div>
-		<a class="back-sure"  href="http://www.w3school.com.cn">离开</a>
+		<a class="back-sure"  href="/user!logout.action">离开</a>
 		<div class="back-cancel">取消</div>
 		<div class="close-button"></div>
 	</div>
