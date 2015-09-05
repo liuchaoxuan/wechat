@@ -7,11 +7,18 @@ $( window ).on( "load", function(){
 			url: "user!getFriendList.action",
 			dataType: "json",
 			success: function(data){
+				
 				var data_recieve=data;
+				//alert(data_recieve[0].nick_name); 
 				var arr_length=data.length;
+				//alert(arr_length);
 				for(var i=0;i<arr_length;i++){
-					var friend_data=data[i]   //把Json数组中的每个Json对象取出来
-					$(".chat-list3>chat").append(chat_friend.find(".chat-name").text(firend_data.nick_name));
+					var friend_data=data[i];   //把Json数组中的每个Json对象取出来
+					//alert(friend_data.nick_name);
+					chat_friend.find(".chat-name").text(friend_data.nick_name)
+					$(".chat-list3").append(chat_friend.clone().show());
+					//$(".chat-list3>chat").append("<div>123</div>");
+					//console.log($(".chat-list3 .chat"));
 				}
 				
 				return data_recieve;
