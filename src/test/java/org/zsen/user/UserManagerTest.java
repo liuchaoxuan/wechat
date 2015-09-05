@@ -46,10 +46,10 @@ public class UserManagerTest {
 	public void testAddRelation()
 	{
 		UserRelation ur=new UserRelation();
-		for(int i=0;i<50;i++)
+		for(int i=0;i<5;i++)
 		{
 			ur.setId(UUID.randomUUID().toString());
-			ur.setUser_id(um.searchUserByName("kaidi"+i).getId());
+			ur.setUser_id(um.searchUserByName("kaidi0").getId());
 			ur.setFriend_id(um.searchUserByName("kaidi"+(i+50)).getId());
 			um.addRelation(ur);
 		}

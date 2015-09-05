@@ -57,7 +57,7 @@ public class AuthenFilter implements Filter{
 		 HttpServletRequest request = (HttpServletRequest) arg0;
 		   HttpServletResponse response = (HttpServletResponse) arg1;
 		 if(request.getSession().getAttribute(CONSTANT.USER_USER)==null)
-			 response.sendRedirect("error.jsp");
+			 response.sendRedirect("/index.jsp");
 		 else
 			 arg2.doFilter(arg0, arg1);
 	}

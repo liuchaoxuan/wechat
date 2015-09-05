@@ -8,6 +8,9 @@
 */ 
 package org.zsen.action;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -15,7 +18,7 @@ import org.zsen.user.CONSTANT;
 import org.zsen.user.User;
 import org.zsen.user.UserManager;
 
-import com.sun.xml.internal.bind.v2.runtime.reflect.opt.Const;
+import com.alibaba.fastjson.JSON;
 
 /**
 * @ClassName: LoginAction
@@ -55,6 +58,26 @@ public class UserAction extends BaseAction{
 		}
 		else
 			return CONSTANT.FAILIED;
+	}
+	public void getFriendList()
+	{
+		User u=(User) getSession().getAttribute(CONSTANT.USER_USER);
+		String outstr=null;
+		if(u==null)
+			outstr=JSON.toJSONString("error");
+		else
+			outstr=JSON.toJSONString(um.getAllFriends(u.getId()));
+				PrintWriter out;
+				try {
+					out = getWriter();
+					out.println(outstr);
+					out.flush();
+					out.close();	
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+						
+		
 	}
 	public User getUser() {
 		return user;
