@@ -70,10 +70,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<form action="user!register.action" method="post">
 					<input type="text" placeholder="输入注册邮箱" name="user.email" id="regemail">
 					<input type="password" placeholder="输入密码" name="user.password" id="regpassword">
-					<input type="text" placeholder="输入注册用户名" name="user.name" id="redusername">
+<!-- 					<input type="text" placeholder="输入注册用户名" name="user.name" id="redusername"> -->
 					<select name="user.sex">
-						<option value="女">女</option>
 						<option value="男">男</option>
+						<option value="女">女</option>
 					</select>
 					<select name="user.city" id="shengfen">
 						<option value="江苏">江苏</option>

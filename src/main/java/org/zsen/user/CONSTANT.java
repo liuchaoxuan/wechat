@@ -18,6 +18,7 @@ package org.zsen.user;
 public class CONSTANT {
 	 public static String FAILIED="failied";
 	 public static String SUCCESS="success";
+	 public static String ERROR="error";
 	 public static String USER_NOTFOUND="not found user";
 	 public static String USER_FIELD_OCCUPIED="filed occupied";
 	 public static String USER_USER="user";

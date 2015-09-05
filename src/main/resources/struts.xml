@@ -22,11 +22,11 @@
 		<default-interceptor-ref name="WeChatStack"></default-interceptor-ref> <!-- 设置使用的拦截器 -->
 		
 		<global-results>  <!-- 全局结果 -->
-    		<result name="action_login">/index.jsp</result>
+    		<result name="action_login" type="redirect">/index.jsp</result>
     	</global-results>
 		
 		<action name="user"  class="userAction">  	<!-- 定义处理请求URL为login.action的Action -->
-			<result name="success" type="redirect">chat.html</result>
+			<result name="success" type="redirect">chat.jsp</result>
 		</action>
 		
 		
