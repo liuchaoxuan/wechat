@@ -1,5 +1,36 @@
 
 $( window ).on( "load", function(){
+	var chat_friend=$("#model").clone();
+
+		$.ajax({ 
+		    type: "POST", 	
+			url: "user!getFriendList.action",
+			dataType: "json",
+			success: function(data){
+				var data_recieve=data;
+				var arr_length=data.length;
+				for(var i=0;i<arr_length;i++){
+					var friend_data=data[i]   //把Json数组中的每个Json对象取出来
+					$(".chat-list3>chat").append(chat_friend.find(".chat-name").text(firend_data.nick_name));
+				}
+				
+				return data_recieve;
+			},
+			error: function(jqXHR){     
+			   alert("发生错误：" + jqXHR.status);  
+			},     
+		});
+
+		/*var aArray =new Array();//定义一个数组
+		console.log(aArray.length);
+		aArray[0] = "张三";
+		aArray[1] = "男";
+		aArray[2] = "123456@qq.com";//把值一个个添加到数组中。
+		var arrayValue = aArray[0];//取出其中一个值
+		console.log("");
+		
+		var json1={"name":"zhang","sex":"man"}
+		console.log(json1.name);*/
 	
 	var append_t=$(".example").clone();
 	var	prepend_t=$(".chat-list1 chat").first().clone() ;		

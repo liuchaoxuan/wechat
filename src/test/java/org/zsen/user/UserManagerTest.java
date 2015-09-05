@@ -79,6 +79,7 @@ public class UserManagerTest {
 		u.setPassword("123456");
 		u.setEmail("fishwithwater"+i+"@163.com");
 		u.setPhone_Num("186"+i);
+		u.setNick_name("逗逼"+i);
 		System.out.println(um.addUser(u));
 		}
 	}
