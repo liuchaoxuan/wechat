@@ -52,7 +52,10 @@ public class UserAction extends BaseAction{
 		}
 		
 		else
+		{
+			System.out.println("登录失败");
 			return CONSTANT.ACTION_LOGIN;
+		}
 	}
 	
 	/**

@@ -14,8 +14,7 @@
 			<interceptor-stack name="WeChatStack">
 				<interceptor-ref name="defaultStack"></interceptor-ref>
 				<interceptor-ref name="loginAuthenticate">
-				 <param name="excludeMethods">login</param>
-				 <param name="excludeMethods">register</param>
+				 <param name="excludeMethods">login,register</param>
 				</interceptor-ref>
 			</interceptor-stack>
 		</interceptors>
