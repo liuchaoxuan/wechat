@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+     http://www.springframework.org/schema/beans/spring-beans.xsd
+     http://www.springframework.org/schema/aop
+     http://www.springframework.org/schema/aop/spring-aop.xsd
+     http://www.springframework.org/schema/tx
+	 http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+     http://www.springframework.org/schema/context 
+     http://www.springframework.org/schema/context/spring-context.xsd">
+	<context:component-scan base-package="org.zsen"></context:component-scan>
+
+	<bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location" value="db.properties"></property>
+	</bean>
+
+
+	<!-- ======================== Hibernate ============================ -->
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="${db.driverClassName}"></property>
+		<property name="username" value="${db.username}"></property>
+		<property name="password" value="${db.password}"></property>
+		<property name="url" value="${url}"></property>
+		<property name="initialSize" value="2"></property>
+		<property name="maxActive" value="20"></property>
+		<property name="maxIdle" value="5"></property>
+		<property name=""></property>
+	</bean>
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"></property>
+		<property name="packagesToScan" value="org.zsen.model"></property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.Dialect">${db.hibernate.Dialect}</prop>
+				<prop key="hibernate.format_sql">true</prop>
+				<prop key="show_sql">false</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+				<prop key="hibernate.connection.autocommit">false</prop>
+			</props>
+		</property>
+	</bean>
+
+	<!-- ===================== ActiveMQ ========================== -->
+	<bean id="jmsFactory" class="org.apache.activemq.pool.PooledConnectionFactory">
+		<property name="connectionFactory">
+			<bean class="org.apache.activemq.ActiveMQConnectionFactory">
+				<property name="brokerURL" value="tcp://127.0.0.1:61616"></property>
+			</bean>
+		</property>
+		<property name="maxConnections" value="10"></property>
+		<property name="idleTimeout" value="300000"></property>
+	</bean>
+	<bean id="defaultDestination" class="org.apache.activemq.command.ActiveMQTempQueue">
+		<constructor-arg index="0" value="subject"></constructor-arg>
+	</bean>
+	<bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate">
+		<property name="connectionFactory" ref="jmsFactory"></property>
+		<property name="defaultDestination" ref="defaultDestination"></property>
+	</bean>
+	<bean id="messageListener"
+		class="org.springframework.jms.listener.adapter.MessageListenerAdapter">
+		<property name="delegate" ref="messageReciver"></property>
+		<property name="messageConverter"></property>
+	</bean>
+	<bean id="listenerContainer"
+		class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+		<property name="concurrency" value="5"></property>
+		<property name="destination" ref="defaultDestination"></property>
+		<property name="messageListener" ref="messageListener"></property>
+	</bean>
+</beans>

@@ -1,0 +1,36 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+
+	<constant name="struts.DevMode" value="true"></constant>  <!-- 开发模式 -->
+	<constant name="struts.enable.DynamicMethodInvocation" value="true" /> <!-- 打开DMI -->
+	<constant name="struts.i18n.encoding" value="utf-8"></constant> <!-- 设置i18n -->
+
+	<package name="default" extends="struts-default" namespace="/">
+
+		<interceptors>  <!-- 拦截器配置 -->
+			<interceptor name="loginAuthenticate" class="org.zsen.core.AuthenInterceptor"></interceptor> <!-- 登录验证拦截器 -->
+			<interceptor-stack name="WeChatStack">
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+				<interceptor-ref name="loginAuthenticate">
+				 <param name="excludeMethods">register,login</param>
+				</interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		
+		<default-interceptor-ref name="WeChatStack"></default-interceptor-ref> <!-- 设置使用的拦截器 -->
+		
+		<global-results>  <!-- 全局结果 -->
+    		<result name="action_login">/index.jsp</result>
+    	</global-results>
+		
+		<action name="user"  class="userAction">  	<!-- 定义处理请求URL为login.action的Action -->
+			<result name="success" type="redirect">chat.html</result>
+		</action>
+		
+		
+	</package>
+
+
+</struts>

@@ -1,0 +1,81 @@
+*{padding:0;margin:0;list-style: none;}
+.wrap{margin:auto 171px;}
+.nav{overflow:hidden;margin-top: 20px;}
+.nav-list{float:left;width:500px;}
+.first-ul{overflow:hidden;}
+.first-list{list-style: none;float:left;width:100px;text-align:center;margin-right: 6px; height: 30px;line-height: 30px;  cursor: pointer;background-color:lightblue;position:relative;  font-weight: bold;color: #555;}
+.search{float: right;margin-right: 60px;height: 30px;line-height: 30px;  font-size: 0;overflow: hidden;}
+input{height: 26px;line-height: 26px;  float: left;}
+.search-icon{display: inline-block; background-color: red;width: 30px;height: 30px;background-color: red;margin-left: 7px;background-color: lightblue;background: lightblue url(../images/321.png) -230px -103px no-repeat;}
+.realtion{position:absolute;}
+.main-body{margin-top:50px;}
+.tab-option{margin-bottom:30px;}
+.tab-content{margin-bottom:30px;}
+.option-title{margin-bottom:20px}
+.title-name{}
+.title-name span{width:150px;height:30px;line-height:30px;display:inline-block;background:pink;text-align: center;font-weight: bold;color: #555;}
+.option-content{margin-top:15px;overflow: hidden;}
+.person{float:left;width:250px;overflow: hidden;margin-right:20px;margin-bottom:20px;position: relative;}
+.photo{background-color:pink;height: 100px;width:100px;float:left;border-radius: 10px;}
+.details{margin-left:110px;margin-bottom: 9px;}
+.name{width:160px;font-weight:bold;margin-bottom: 5px;color: #666;}
+.details{padding-top: 15px;}
+.info{width:160px;font-size: 12px;color: #666;margin-top: 10px;}
+.operation{margin-left: 110px;font-size: 0px;position: absolute;bottom: 0px;}
+.operation-icon{width:20px;height:20px;background: pink url(../images/1234.png) -135px -78px no-repeat;display:inline-block;margin-right:8px;cursor: pointer;}
+.chat-with{}
+.move-to{background-position: -329px -229px;}
+.add-to{background-position: -135px -78px;}
+.delete{background-position: -367px -78px;}
+.attention{background-position:-135px -229px;}
+.dele-atten{background-position: -290px -78px;}
+.cancel{background-position: -367px -128px;}
+.tab-option{display:none;}
+.show{display:block;}
+.test{width:200px;height:300px;background: #fc1b83 url(../images/321.png) -191px -78px no-repeat;}
+
+.group-chat{background-position: -58px -279px ;}
+.leave{background-position: -328px -179px;}
+
+
+.chat-nav{overflow: hidden;margin-top: 20px;  margin-bottom: 15px;}
+.chat-left{float:left;width: 400px;text-align: center;background-color: lightblue;color: #555;margin-left:314px;}
+.chat-right{float:right;}
+.chat-title{height: 26px;line-height: 26px;}
+.chat-friend{font-weight:bold;margin-top:20px;border-top:1px solid lightblue;margin-bottom:15px;}
+.chat-scroll{height:332px;min-height:332px;}
+.chat-body{border-top:1px solid lightblue;margin-bottom:15px;}
+.chat-icon{width:26px;height:26px;background: lightblue url(../images/321.png)  -130px -238px   no-repeat;float:right;}
+.history{margin-right: 10px;font-weight: bold;color: #555;}
+.others,.self{overflow:hidden;margin-top: 10px;}
+.others .photo{float:left;width:50px;height:50px;background: url(../images/small1.jpg) no-repeat;border-radius: 5px;}
+.others .person-pic{float:left;width:50px;height:50px;border-radius: 5px;}
+
+.user1 .photo{background-color:red;}
+.user2 .photo{background-color:purple;}
+.user3 .photo{background-color:blue;}
+.others .content{float:left;line-height:40px;margin-left:10px;background-color:pink;padding: 0 10px;border-radius: 5px;margin-top: 10px;}
+
+.self .photo{float:right;width:50px;height:50px;background: url(../images/small2.jpg) no-repeat;border-radius: 5px;}
+.self .self-pic{float:right;width:50px;height:50px;border-radius: 5px;}
+.self .content{float:right;line-height:40px;margin-right:10px;background-color:lightblue;padding:auto 10px;padding: 0 10px;
+  border-radius: 5px;max-width: 800px;margin-top: 10px;}
+  
+.user1 .photo{background: url(../images/small3.jpg) no-repeat;}
+.user2 .photo{background: url(../images/small4.jpg) no-repeat;}
+.user3 .photo{background: url(../images/small5.jpg) no-repeat;}
+
+.write{text-align:center;margin-bottom:13px;}
+.write-content{border-top:1px solid lightblue;}
+.write-nav{overflow:hidden;  margin-top: 5px;margin-bottom: 5px;}
+.opt-btn{float:left;margin-right:10px;width:30px;height:30px;background-color:lightblue;  cursor: pointer;}
+textarea{height:150px;width:100%;  font-size:  26px;  margin-bottom: 5px;}
+.send{overflow:hidden;}
+.send-btn{float:right;border:1px solid #777;border-radius:3px;padding: 5px;letter-spacing: 3px;width: 60px;color: #555;  cursor: pointer;}
+.send span{float:right;height: 30px;line-height: 30px;color: #555;margin-right: 10px;font-size: 13px;}
+
+.example{display:none;}
+
+footer{height: 50px;border-top: 1px solid lightblue;line-height: 50px;text-align: center;}
+.footer-content{font-size:12px;color:#999;}
+
