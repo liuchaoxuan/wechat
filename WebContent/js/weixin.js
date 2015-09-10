@@ -151,7 +151,8 @@ $( window ).on( "load", function(){
 			url: "user!getFriendList.action",
 			dataType: "json",
 			success: function(data){
-				data_all=data;        
+				data_all=data;  
+				console.log(data_all);
 			},
 			error: function(jqXHR){     
 				alert("发生错误：" + jqXHR.status);  
@@ -159,7 +160,7 @@ $( window ).on( "load", function(){
 			async:false       
 		});
 	}; 
-	window.setInterval(clock,500);
+	window.setInterval(clock,1000);
 	//点击与好友对话框中的下拉按钮，可以slide出好友的头像等信息。
 	$(".wrap").on( "click",".pull-down",function(){
 		$(this).toggleClass("pulled");
