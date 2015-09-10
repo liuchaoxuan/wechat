@@ -8,6 +8,9 @@
 */ 
 package org.zsen.action;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
@@ -33,9 +36,17 @@ public class FriendAction extends BaseAction {
 	
 	public void addFriend()
 	{
+		PrintWriter out=null;
+		String str;
+		try {
+			out=getWriter();
+		} catch (IOException e) {
+			e.printStackTrace();		
+		}
+
 		if(StringUtils.isEmpty(friend_name))
 		{
-			throw new IllegalArgumentException("参数非法");
+			str="参数错误";	
 		}
 		else
 		{
@@ -45,9 +56,12 @@ public class FriendAction extends BaseAction {
 			ur.setUser_id(u.getId());
 			ur.setFriend_id(friend_id);
 			um.addRelation(ur);
-			
+			str="添加成功";		
 		}
-			
+		
+		out.println(str);
+		out.flush();
+		out.close();
 	}
 
 	public String getFriend_name() {

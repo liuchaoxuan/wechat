@@ -25,7 +25,7 @@ import org.zsen.message.TextMessageImpl;
 */
 public class MessageContainerDaoTest {
 
-	@Test
+//	@Test
 	public void test() {
 		ClassPathXmlApplicationContext ctx=new ClassPathXmlApplicationContext("ApplicationContext.xml");
 		try {

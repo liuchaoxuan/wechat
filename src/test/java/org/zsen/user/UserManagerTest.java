@@ -27,12 +27,12 @@ public class UserManagerTest {
 	ClassPathXmlApplicationContext ctx=new ClassPathXmlApplicationContext("ApplicationContext.xml");
 	UserManager um=ctx.getBean(UserManager.class);
 	long start;
-	@Before
+//	@Before
 	public void start()
 	{
 		start=System.currentTimeMillis();
 	}
-	@After
+//	@After
 	public void end()
 	{
 		System.out.println(System.currentTimeMillis()-start);
