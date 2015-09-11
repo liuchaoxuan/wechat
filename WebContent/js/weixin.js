@@ -1,10 +1,9 @@
-
+var data_all;      //定义一个全局变量，用来盛放返回的data
 $( window ).on( "load", function(){
-	var chat_friend=$("#model").clone();
+	//var chat_friend=$("#model").clone();
 	var append_t=$(".example").clone();
 	var	prepend_t=$(".chat-list1 chat").first().clone() ;
-	var can_lis;
-    var data_all;                     //定义一个全局变量，用来盛放返回的data
+	var can_lis;                     
 	var myfriend_list=$.ajax({ 
 		    type: "POST", 	
 			url: "user!getFriendList.action",
@@ -19,13 +18,13 @@ $( window ).on( "load", function(){
 		});
 		//console.log(data_all);
 		
-		var arr_length=data_all.length;
-		console.log(data_all);
-		for(var i=0;i<arr_length;i++){
-			var friend_data=data_all[i];   //把Json数组中的每个Json对象取出来
-			chat_friend.find(".chat-name").text(friend_data.nick_name)
-			$(".chat-list3").append(chat_friend.clone().show());
-		}
+		//var arr_length=data_all.length;
+		//console.log(data_all);
+		//for(var i=0;i<arr_length;i++){
+		//	var friend_data=data_all[i];   //把Json数组中的每个Json对象取出来
+		//	chat_friend.find(".chat-name").text(friend_data.nick_name)
+		//	$(".chat-list3").append(chat_friend.clone().show());
+		//}
 		//var arr1_length=myfriend_list.length;
 		//console.log(arr1_length);
 		/*for(var i=0;i<arr_length;i++){
@@ -51,33 +50,8 @@ $( window ).on( "load", function(){
 	$(".wrap").on( "click",".more",function(){
 	    $(".more-list").toggle();
 	});
-	//左侧主菜单的第一个按钮，气泡，点击出现第一个菜单，当前通话菜单	
-	$(".wrap").on( "click",".ico-first",function(){
-	    $(".ico-first").css("background-position","0px -2083px");
-		$(".ico-second").css("background-position","0px -2232px");
-		$(".ico-third").css("background-position","0px -2140px");
-		$(".chat-list1").siblings().hide();
-		$(".chat-list1").show();
-	}); 
-	//左侧主菜单的第二个按钮，文章，点击出现第二个菜单，公众号菜单	
-	$(".wrap").on( "click",".ico-second",function(){
-		$(".ico-first").css("background-position","0px -2048px");
-	    $(".ico-second").css("background-position","0px -2267px");
-		$(".ico-third").css("background-position","0px -2140px");
-		$(".chat-list2").siblings().hide();
-		$(".chat-list2").show();
-	}); 
-	//左侧主菜单的第三个按钮，人像，点击出现第三个菜单，我的好友菜单	
-	$(".wrap").on( "click",".ico-third",function(){
-		$(".ico-first").css("background-position","0px -2048px");
-		$(".ico-second").css("background-position","0px -2232px");
-	    $(".ico-third").css("background-position","0px -2175px");
-		$(".chat-list3").siblings().hide();
-		$(".chat-list3").show();
-	}); 
-	//模拟事件触发，默认显示第一个当前通话菜单，第一个页面
-    $(".ico-first").click();
-	$(".page1").show();
+	
+	
 	//第一个页面是空白页面，空白人像图片
 	//第二个页面是好友详细信息页面，有发送消息按钮
 	//第三个页面是聊天窗口页面，接受好友信息，发送我给好友的信息。
