@@ -1,0 +1,96 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	
+	<link rel="shortcut icon" href="images/weixin.ico"/>
+	<link rel="stylesheet" href="css/weixin.css" type="text/css" />
+	<script type="text/javascript" src="js/jquery.js"></script> 
+	<script type="text/javascript" src="js/weixin.js"></script>
+	<title>仿微信</title>
+	<style>
+	 iframe{border:0;}
+	</style>
+</head>
+<body>
+<div class="wrap">
+	<div class="left">
+		<div class="left-top">
+			<div class="self-info">
+				<div class="self-details">
+					<div class="self-pic">
+						<img src="images/photo1.jpg" class="person-pic"/>
+					</div>
+					<div class="self-name">张桠鑫</div>
+				</div>
+				<div class="more"></div>
+				<div class="more-list">
+					<ul class="option-list">
+						<li class="option1">添加好友</li>
+						<li class="option2">修改资料</li>
+						<li class="option3">退出登录</li>
+					</ul>
+				</div>
+				<div class="my-details">
+					<div class="pic-top"></div>
+					<div class="name-sex-middle"></div>
+					<div class="tip-bottom">备注</div>
+				</div>
+			</div>
+			<div class="search">
+				<div class="search-ico"></div>
+				<input placeholder="搜索">
+			</div>
+		</div>
+		<div class="left-body">
+			<div class="nav-btn">
+				<div class="nav-ico">
+					<a class="ico-first icon" style="display:block;" target="list1.html"></a>
+				</div>
+				<div class="divide"></div>
+				<div class="nav-ico">
+					<a class="ico-second icon" style="display:block;" target="list2.html"></a>
+				</div>
+				<div class="divide"></div>
+				<div class="nav-ico">
+					<a class="ico-third icon" style="display:block;" target="list3.html"></a>
+				</div>
+			</div>
+			<div class="nav-list" style="height: 520px;width: 100%;">
+				<iframe id="J_list" border="0" scroll="no" width="100%" height="100%"></iframe>
+			</div>
+		</div>
+	</div>
+	<div class="right">
+		<iframe id="J_page" border="0" scroll="no" width="100%" height="100%"></iframe>
+	</div>
+	
+	
+	<!-- 用户操作 添加 好友 -->
+	<div class="tanchu1 tanchu">
+		<div class="add">
+			<div class="search-ico"></div>
+			<input placeholder="要添加的好友名">
+		</div>
+		<div class="added">请等候被验证通过.</div>
+		<div class="add-button">添加</div>
+		<div class="close-button"></div>
+	</div>
+	<!-- 用户操作 添加 好友 -->
+	<div class="tanchu2 tanchu">
+		<div class="back">您确定要退出吗？</div>
+		<a class="back-sure"  href="http://www.w3school.com.cn">离开</a>
+		<div class="back-cancel">取消</div>
+		<div class="close-button"></div>
+	</div>
+	<div class="tanchu-mengban"></div>
+</div>
+</div>
+<script>
+	$(".icon").click(function(){
+		var url=$(this).attr("target");
+		$("#J_list").attr("src",url);
+	})
+</script>
+</body>
+</html>
