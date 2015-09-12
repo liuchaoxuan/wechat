@@ -80,7 +80,7 @@ $( window ).on( "load", function(){
 		$(".page1").show();
 	}); 
 	
-	//点第三个列表中的人，出现页面二，好友的详细信息。	
+	/*//点第三个列表中的人，出现页面二，好友的详细信息。	
 	$(".wrap").on( "click",".chat-list3 .chat-info",function(){
 		$(".page2").siblings().hide();
 		//根据列表中的好友头像，改变好友详细信息中的头像
@@ -102,8 +102,8 @@ $( window ).on( "load", function(){
 		$(this).parent().addClass("actived");
 		$(this).parent().siblings().removeClass("actived");
 	}); 
-		
-	//点击好友的详细信息中的  “发消息”  按钮，弹出与好友的对话框。
+		*/
+	/*//点击好友的详细信息中的  “发消息”  按钮，弹出与好友的对话框。
 	$(".wrap").on( "click",".chat-button",function(){   
 		$(".page3").siblings().hide();
 		//把自己的头像填好
@@ -115,7 +115,7 @@ $( window ).on( "load", function(){
 		$(".page3").show(); 
 		//can_lis=true;
 		//alert(can_lis);
-	}); 
+	}); */
 	
 	
 	//设置定时器，定时取数据。
@@ -134,7 +134,7 @@ $( window ).on( "load", function(){
 			async:false       
 		});
 	}; 
-	window.setInterval(clock,1000);
+	//window.setInterval(clock,1000);
 	//点击与好友对话框中的下拉按钮，可以slide出好友的头像等信息。
 	$(".wrap").on( "click",".pull-down",function(){
 		$(this).toggleClass("pulled");
@@ -142,7 +142,7 @@ $( window ).on( "load", function(){
 	}); 
 	
 	//与好友聊天框的   发送  按钮，绑定onclick事件。
-	$(".wrap").on( "click",".send-btn",function(){
+	/*$(".wrap").on( "click",".send-btn",function(){
 	  
 		 
 		//console.log(append_t);
@@ -167,7 +167,7 @@ $( window ).on( "load", function(){
 			$(this).parents(".write").find("textarea").focus();
 		
 		}
-	});
+	});*/
 
 	
 	//添加好友操作	
