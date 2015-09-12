@@ -28,7 +28,8 @@
 		<action name="user"  class="userAction">  	<!-- 定义处理请求URL为login.action的Action -->
 			<result name="success" type="redirect">chat.jsp</result>
 		</action>
-		
+		<action name="message"  class="messageAction">  	<!-- Message Action -->
+		</action>
 		
 	</package>
 

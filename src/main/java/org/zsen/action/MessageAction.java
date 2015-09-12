@@ -28,14 +28,17 @@ public class MessageAction {
 	private DefaultMessageContainer mc;
 	private TextMessageImpl msg;
 
-	public void sendMessage()
+	
+	public void send()
 	{
 		mc.sendMessage(msg);
 	}
+	
+
+	
 	public DefaultMessageContainer getMc() {
 		return mc;
 	}
-
 	@Autowired
 	public void setMc(DefaultMessageContainer mc) {
 		this.mc = mc;

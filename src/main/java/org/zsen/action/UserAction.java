@@ -79,7 +79,7 @@ public class UserAction extends BaseAction {
 	 */
 	public void getFriendList() {
 		User u = (User) getSession().getAttribute(CONSTANT.USER_USER);
-		String outstr = JSON.toJSONString(um.getAllFriends(u.getId()));
+		String outstr = JSON.toJSONString(u)+JSON.toJSONString(um.getAllFriends(u.getId()));//发送user和 friendList
 		PrintWriter out;
 		try {
 			out = getWriter();
