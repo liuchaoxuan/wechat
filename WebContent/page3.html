@@ -6,9 +6,12 @@
     <meta name="keywords" content="keyword1,keyword2,keyword3">
     <meta name="description" content="this is my page">
     <meta name="content-type" content="text/html; charset=UTF-8">
-    
-    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
-
+    <link rel="stylesheet" href="css/weixin.css" type="text/css" />
+    <script type="text/javascript" src="js/jquery.js"></script> 
+	<style>
+	 body{background:none;}
+	 .inner-wrap{width:100%;height:667px;}
+	</style>
   </head>
   
   <body>
@@ -79,5 +82,35 @@
 			</div>
 		</div>
 	</div>
+	<script>
+	$(function(){
+		var append_t=$(".example").clone();
+	
+		$(".send-btn").click(function(){
+			var text_content=$(this).parents(".write").find("textarea").val();  //取出文本框中的内容
+			console.log(text_content);
+			if(text_content==""){	
+			}else{
+				$.ajax({ 
+			    	type: "POST", 	
+					url: "message!send.action",
+					data: {
+					message: text_content
+				},
+				dataType: "json" 
+			});
+			//把文本框中的内容装好，通话内容最后。
+			append_t.removeClass("example").find(".content").text(text_content)
+			$(".chat-body").append(append_t.clone());
+			msg_end.scrollIntoView(); 
+			//初始化文本框，使之内容清空，并且获取光标
+			$(this).parents(".write").find("textarea").val("");
+			$(this).parents(".write").find("textarea").focus();
+		
+		}
+	});
+	
+	});
+	</script>
   </body>
 </html>

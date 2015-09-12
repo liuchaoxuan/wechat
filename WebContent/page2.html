@@ -7,7 +7,11 @@
     <meta name="description" content="this is my page">
     <meta name="content-type" content="text/html; charset=UTF-8">
     <link rel="stylesheet" href="css/weixin.css" type="text/css" />
-
+    <script type="text/javascript" src="js/jquery.js"></script> 
+	<style>
+	 body{background:none;}
+	 .inner-wrap{width:100%;height:667px;}
+	</style>
   </head>
   
   <body>
@@ -36,5 +40,34 @@
 			</div>
 		</div>
 	</div>
+	<script>
+	$(function(){
+		
+		var current_info=window.parent.current_fri;  //先把从父窗口list3列取进来的数据存好
+	    var data_all=window.parent.data_all;
+		//根据列表中的好友头像，改变好友详细信息中的头像
+		$(".friend-photo").html(current_info.find("img").clone().css("height","110px"));
+		//根据列表中好友的昵称，修改好友详细信息中的昵称
+		var fri_now=current_info.find('.chat-name').text()
+		$(".name-sex>.firend-name").html(fri_now);
+		//为了取得好友的全部信息，先取出该好友的昵称字符串，再去查找属于data_all中的index。
+		//console.log($(this).find('.chat-name').text());//取出该用户的名字，再去查找该用户的用户信息。
+		for(var i=0;i<data_all.length;i++){
+			var friend_data=data_all[i];   //把Json数组中的每个Json对象取出来
+			
+			if(data_all[i].nick_name==fri_now){
+				$(".name-sex>.firend-sex").html(data_all[i].phone_Num);
+				$(".xian").html(data_all[i].nick_name);
+			}
+		}
+		
+		
+		$(".chat-button").click(function(){   
+			window.parent.$("#J_page").attr("src","page3.html");
+		});
+		
+	});
+	
+	</script>
   </body>
 </html>

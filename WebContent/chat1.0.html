@@ -45,15 +45,71 @@
 		<div class="left-body">
 			<div class="nav-btn">
 				<div class="nav-ico">
-					<a class="ico-first icon" style="display:block;" target="list1.html"></a>
+					<div class="ico-first icon"></div>
 				</div>
 				<div class="divide"></div>
 				<div class="nav-ico">
-					<a class="ico-second icon" style="display:block;" target="list2.html"></a>
+					<div class="ico-second icon"></div>
 				</div>
 				<div class="divide"></div>
 				<div class="nav-ico">
-					<a class="ico-third icon" style="display:block;" target="list3.html"></a>
+					<div class="ico-third icon"></div>
+				</div>
+			</div>
+			<div class="chat-body-person">
+				<div class="all-chat chat-list1">      <!-- 正在对话列表 -->
+					<div class="chat">
+						<div class="chat-info">
+							<div class="chat-pic">
+								<img src="images/photo2.jpg" class="person-pic"/>
+							</div>
+							<div class="chat-name">张森</div>
+							<div class="chat-option"></div>
+							<div class="last-chat">最新消息</div>
+						</div>
+					</div>
+					<div class="chat">
+						<div class="chat-info">
+							<div class="chat-pic">
+								<img src="images/photo3.jpg" class="person-pic"/>
+							</div>
+							<div class="chat-name">王二</div>
+							<div class="chat-option"></div>
+							<div class="last-chat">最新消息</div>
+						</div>
+					</div>
+				</div>
+				<div class="all-chat chat-list2">               <!-- 公众号列表 -->
+					<div class="chat">
+						<div class="chat-info">
+							<div class="chat-pic">
+								<img src="images/photo1.jpg" class="person-pic"/>
+							</div>
+							<div class="chat-name">屈臣氏</div>
+							<div class="chat-option"></div>
+							<div class="last-chat">有活动啦</div>
+						</div>
+					</div>
+					<div class="chat">
+						<div class="chat-info">
+							<div class="chat-pic">
+								<img src="images/photo12.jpg" class="person-pic"/>
+							</div>
+							<div class="chat-name">联华</div>
+							<div class="chat-option"></div>
+							<div class="last-chat">有活动啦</div>
+						</div>
+					</div>
+				</div>
+				<div class="all-chat chat-list3">                        <!-- 好友列表 -->
+					<div class="chat" id="model" style="display:none;">
+						<a class="chat-info" target="page2.html">
+							<div class="chat-pic">
+								<img src="images/photo7.jpg" class="person-pic"/>
+							</div>
+							<div class="chat-name">王婷</div>
+						</a>
+					</div>
 				</div>
 			</div>
 			<div class="nav-list" style="height: 520px;width: 100%;">
@@ -87,10 +143,44 @@
 </div>
 </div>
 <script>
-	$(".icon").click(function(){
+var current_fri;   // 全局变量，后面使用
+$( window ).on( "load", function(){
+	//先把取出后台传过来的数据，list3好友列表填满
+	var chat_friend=$("#model").clone();     
+  	var arr_length=data_all.length;
+	for(var i=0;i<arr_length;i++){
+		var friend_data=data_all[i];   //把Json数组中的每个Json对象取出来
+		chat_friend.find(".chat-name").text(friend_data.nick_name)
+		$(".chat-list3").append(chat_friend.clone().show());
+	}
+	
+	//判断点那个按钮，相应的显示菜单
+	$(".icon").click(function(){						
+		
+		if ($(this).hasClass("ico-first")){
+			$(".chat-list1").show();
+			$(".chat-list1").siblings().hide();
+		}else if($(this).hasClass("ico-second")){
+			$(".chat-list2").show();
+			$(".chat-list2").siblings().hide();
+		}else{
+			$(".chat-list3").show();
+			$(".chat-list3").siblings().hide();
+		};
+	});
+	
+	//点第三个列表中的人，出现页面二，好友的详细信息。
+	$(".chat-list3 a").click(function(){    	
 		var url=$(this).attr("target");
-		$("#J_list").attr("src",url);
-	})
+		current_fri=$(this);
+		$("#J_page").attr("src",url);
+		$(this).parent().addClass("actived");
+		$(this).parent().siblings().removeClass("actived");
+	});
+
+});
+
+	
 </script>
 </body>
 </html>
