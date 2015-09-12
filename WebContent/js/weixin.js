@@ -1,4 +1,5 @@
 var data_all;      //定义一个全局变量，用来盛放返回的data
+var data_mine;	   //定义一个全局变量，用来盛放返回的用户自己的信息
 $( window ).on( "load", function(){
 	//var chat_friend=$("#model").clone();
 	var append_t=$(".example").clone();
@@ -16,7 +17,20 @@ $( window ).on( "load", function(){
 			}, 
 			async:false       //取消异步，可以把data数据取出，并且保持原格式。
 		});
-	console.log(data_all);
+	
+	$.ajax({ 
+	    type: "POST", 	
+		url: "user!getUserInfo.action",
+		dataType: "json",
+		success: function(data){
+			data_mine=data;        //把返回的Json对象取出
+		},
+		error: function(jqXHR){     
+			alert("发生错误：" + jqXHR.status);  
+		}, 
+		async:false       //取消异步，可以把data数据取出，并且保持原格式。
+	});
+	console.log(data_mine);
 		
 		//var arr_length=data_all.length;
 		//console.log(data_all);
