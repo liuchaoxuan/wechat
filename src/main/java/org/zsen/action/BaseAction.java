@@ -31,6 +31,18 @@ public class BaseAction extends ActionSupport {
 	private HttpServletRequest request=ServletActionContext.getRequest();
 	private HttpSession session=request.getSession();
 	private HttpServletResponse response=ServletActionContext.getResponse();
+	public void printOut(String str)
+	{
+		try {
+			PrintWriter out=getWriter();
+			out.println(str);
+			out.flush();
+			out.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+	}
 	public BaseAction()
 	{
 		response.setContentType("text/html;charset=utf-8");

@@ -15,6 +15,7 @@ import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 
@@ -28,6 +29,7 @@ import org.springframework.stereotype.Component;
 @Component
 @Aspect
 public class ShowTime {
+
 
 	@Pointcut("execution(* org.zsen.action.UserAction.*(..))")
 	public void time()
