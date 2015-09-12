@@ -6,19 +6,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
-  <head>
-    <base href="<%=basePath%>">
-    <title>聊天页面</title>
-    <meta http-equiv="pragma" content="no-cache">
-	<meta http-equiv="cache-control" content="no-cache">
-	<meta http-equiv="expires" content="0">    
-	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
-	<meta http-equiv="description" content="This is my page">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	
 	<link rel="shortcut icon" href="images/weixin.ico"/>
 	<link rel="stylesheet" href="css/weixin.css" type="text/css" />
 	<script type="text/javascript" src="js/jquery.js"></script> 
-	<script type="text/javascript" src="js/weixin.js"></script> 
-  </head>
+	<script type="text/javascript" src="js/weixin.js"></script>
+	<title>仿微信</title>
+	<style>
+	 iframe{border:0;}
+	</style>
+</head>
 <body>
 <div class="wrap">
 	<div class="left">
@@ -47,25 +46,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div class="search">
 				<div class="search-ico"></div>
 				<input placeholder="搜索">
-				
 			</div>
 		</div>
 		<div class="left-body">
 			<div class="nav-btn">
 				<div class="nav-ico">
-					<div class="ico-first"></div>
+					<div class="ico-first icon"></div>
 				</div>
 				<div class="divide"></div>
 				<div class="nav-ico">
-					<div class="ico-second"></div>
+					<div class="ico-second icon"></div>
 				</div>
 				<div class="divide"></div>
 				<div class="nav-ico">
-					<div class="ico-third"></div>
+					<div class="ico-third icon"></div>
 				</div>
 			</div>
 			<div class="chat-body-person">
-				<div class="all-chat chat-list1">
+				<div class="all-chat chat-list1">      <!-- 正在对话列表 -->
 					<div class="chat">
 						<div class="chat-info">
 							<div class="chat-pic">
@@ -86,99 +84,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<div class="last-chat">最新消息</div>
 						</div>
 					</div>
-					<div class="chat">
-						<div class="chat-info">
-							<div class="chat-pic">
-								<img src="images/photo4.jpg" class="person-pic"/>
-							</div>
-							<div class="chat-name">傻逼花</div>
-							<div class="chat-option"></div>
-							<div class="last-chat">最xhdhfud新消息</div>
-						</div>
-					</div>
-					<div class="chat">
-						<div class="chat-info">
-							<div class="chat-pic">
-								<img src="images/photo5.jpg" class="person-pic"/>
-							</div>
-							<div class="chat-name">啦啦啦</div>
-							<div class="chat-option"></div>
-							<div class="last-chat">最新消息</div>
-						</div>
-					</div>
-					<div class="chat">
-						<div class="chat-info">
-							<div class="chat-pic">
-								<img src="images/photo6.jpg" class="person-pic"/>
-							</div>
-							<div class="chat-name">牛牛牛</div>
-							<div class="chat-option"></div>
-							<div class="last-chat">最新xchdjfhdf消息</div>
-						</div>
-					</div>
-					<div class="chat">
-						<div class="chat-info">
-							<div class="chat-pic">
-								<img src="images/photo7.jpg" class="person-pic"/>
-							</div>
-							<div class="chat-name">喵喵</div>
-							<div class="chat-option"></div>
-							<div class="last-chat">最新消息</div>
-						</div>
-					</div>
-					<div class="chat">
-						<div class="chat-info">
-							<div class="chat-pic">
-								<img src="images/photo8.jpg" class="person-pic"/>
-							</div>
-							<div class="chat-name">咩咩</div>
-							<div class="chat-option"></div>
-							<div class="last-chat">最新xjfdfjdhf消息</div>
-						</div>
-					</div>
-					<div class="chat">
-						<div class="chat-info">
-							<div class="chat-pic">
-								<img src="images/photo9.jpg" class="person-pic"/>
-							</div>
-							<div class="chat-name">王婷</div>
-							<div class="chat-option"></div>
-							<div class="last-chat">最新消息</div>
-						</div>
-					</div>
-					<div class="chat">
-						<div class="chat-info">
-							<div class="chat-pic">
-								<img src="images/photo10.jpg" class="person-pic"/>
-							</div>
-							<div class="chat-name">耶</div>
-							<div class="chat-option"></div>
-							<div class="last-chat">最sdfhfdfjd息</div>
-						</div>
-					</div>
-					<div class="chat">
-						<div class="chat-info">
-							<div class="chat-pic">
-								<img src="images/photo11.jpg" class="person-pic"/>
-							</div>
-							<div class="chat-name">张森</div>
-							<div class="chat-option"></div>
-							<div class="last-chat">最新dhfugfu消息</div>
-						</div>
-					</div>
-					<div class="chat">
-						<div class="chat-info">
-							<div class="chat-pic">
-								<img src="images/photo12.jpg" class="person-pic"/>
-							</div>
-							<div class="chat-name">张森</div>
-							<div class="chat-option"></div>
-							<div class="last-chat">最新消jd息</div>
-						</div>
-					</div>
-					
 				</div>
-				<div class="all-chat chat-list2">
+				<div class="all-chat chat-list2">               <!-- 公众号列表 -->
 					<div class="chat">
 						<div class="chat-info">
 							<div class="chat-pic">
@@ -199,213 +106,29 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<div class="last-chat">有活动啦</div>
 						</div>
 					</div>
-					<div class="chat">
-						<div class="chat-info">
-							<div class="chat-pic">
-								<img src="images/photo4.jpg" class="person-pic"/>
-							</div>
-							<div class="chat-name">一鸣</div>
-							<div class="chat-option"></div>
-							<div class="last-chat">有活动啦</div>
-						</div>
-					</div>
-					<div class="chat">
-						<div class="chat-info">
-							<div class="chat-pic">
-								<img src="images/photo5.jpg" class="person-pic"/>
-							</div>
-							<div class="chat-name">浙江省公安</div>
-							<div class="chat-option"></div>
-							<div class="last-chat">有活动啦</div>
-						</div>
-					</div>
-					<div class="chat">
-						<div class="chat-info">
-							<div class="chat-pic">
-								<img src="images/photo3.jpg" class="person-pic"/>
-							</div>
-							<div class="chat-name">阜阳市公安</div>
-							<div class="chat-option"></div>
-							<div class="last-chat">有活动啦</div>
-						</div>
-					</div>
-					<div class="chat">
-						<div class="chat-info">
-							<div class="chat-pic">
-								<img src="images/photo2.jpg" class="person-pic"/>
-							</div>
-							<div class="chat-name">杭州市公安</div>
-							<div class="chat-option"></div>
-							<div class="last-chat">有活动啦</div>
-						</div>
-					</div>
-					
-					
 				</div>
-				<div class="all-chat chat-list3">
-					<div class="chat">
-						<div class="chat-info">
+				<div class="all-chat chat-list3">                        <!-- 好友列表 -->
+					<div class="chat" id="model" style="display:none;">
+						<a class="chat-info" target="page2.html">
 							<div class="chat-pic">
 								<img src="images/photo7.jpg" class="person-pic"/>
 							</div>
 							<div class="chat-name">王婷</div>
-							</div>
-					</div>
-					<div class="chat">
-						<div class="chat-info">
-							<div class="chat-pic">
-								<img src="images/photo8.jpg" class="person-pic"/>
-							</div>
-							<div class="chat-name">秋分</div>
-							</div>
-					</div>
-					<div class="chat">
-						<div class="chat-info">
-							<div class="chat-pic">
-								<img src="images/photo3.jpg" class="person-pic"/>
-							</div>
-							<div class="chat-name">李烨</div>
-							</div>
-					</div>
-					<div class="chat">
-						<div class="chat-info">
-							<div class="chat-pic">
-								<img src="images/photo4.jpg" class="person-pic"/>
-							</div>
-							<div class="chat-name">吴涛</div>
-							</div>
-					</div>
-					<div class="chat">
-						<div class="chat-info">
-							<div class="chat-pic">
-								<img src="images/photo5.jpg" class="person-pic"/>
-							</div>
-							<div class="chat-name">计量</div>
-						</div>
+						</a>
 					</div>
 				</div>
 			</div>
+			<div class="nav-list" style="height: 520px;width: 100%;">
+				<iframe id="J_list" border="0" scroll="no" width="100%" height="100%"></iframe>
+			</div>
 		</div>
-		
-		
 	</div>
 	<div class="right">
-	
-		<div class="page page1">  <!--点击联系人头像-->
-			<div class="chat-title">
-				<div class="chat-center">
-					<span class="chat-friend"></span>
-				</div>
-			</div>
-			<div class="friend-details">
-				<div class="details">
-					<div class="nobody-photo"></div>
-					<div class="nobody">未选择聊天</div>
-				</div>
-			</div>
-		</div>
-		<div class="page page4">  <!--点击联系人,但是未点击联系人头像-->
-			<div class="chat-title">
-				<div class="chat-center">
-					<span class="chat-friend">详细信息</span>
-				</div>
-			</div>
-			<div class="friend-details">
-				<div class="details">
-					<div class="weizhi-photo"></div>
-				</div>
-			</div>
-		</div>
-		<div class="page page2">  <!--点击联系人头像-->
-			<div class="chat-title">
-				<div class="chat-center">
-					<span class="chat-friend">详细信息</span>
-				</div>
-			</div>
-			<div class="friend-details">
-				<div class="details">
-					<div class="friend-photo"></div>
-					<div class="name-sex">
-						<span class="firend-name">张汉阳</span><span class="firend-sex">女</span>
-					</div>
-					<div class="faith">时间不等人</div>
-					<div class="tip-area">
-						<div class="tip-area-content">
-							<div class="tip">备注：<span class="tip">张汉阳</span></div>
-							<div class="area">地区：<span class="sheng">河南</span><span class="xian">许昌</span></div>
-						</div>
-					</div>
-				</div>
-				<div class="chat-button">发消息</div>
-			</div>
-		</div>
-		
-		<div class="page page3">
-			<div class="chat-title">
-				<div class="chat-center">
-					<span class="chat-friend">王婷</span>
-					<span class="pull-down">^</span>
-				</div>
-			</div>
-			<div class="chat-person">
-				<div class="now-person">
-				</div>
-			</div>
-			<div class="chat-content">
-				<div class="chat-scroll" style="overflow:auto;margin: 0 20px;">
-					<div class="chat-body">
-						<div class="self example">
-							<div class="photo"></div>
-							<div class="content"></div>
-						</div>
-						<div class="others">
-						    <div class="others-img">
-								<img src="images/photo10.jpg" class="person-pic"/>
-							</div>
-						<div class="content">在不？</div>
-						</div>
-						<div class="self">
-							<img src="images/small2.jpg" class="self-pic"/>
-							<div class="content">在啊</div>
-						</div>
-						<div class="self">
-							<img src="images/small2.jpg" class="self-pic"/>
-							<div class="content">问你一个问题呗...</div>
-						</div>
-						<div class="others">
-							<div class="others-img">
-								<img src="images/photo1.jpg" class="person-pic"/>
-							</div>
-							<div class="content">问吧</div>
-						</div> 
-						<div class="others">
-							<div class="others-img">
-								<img src="images/photo7.jpg" class="person-pic"/>
-							</div>
-							<div class="content">什么问题？</div>
-						</div>
-					</div>	
-					<div id="msg_end" style="height:0px;width:0px;background:red;"></div>
-				</div>
-			</div>
-			<div class="write"  style="margin: 0 20px;">
-				<div class="write-content">
-					<div class="write-nav">
-						<div class="opt-btn expression"></div>
-						<div class="opt-btn cut"></div>
-						<div class="opt-btn doc"></div>
-					</div>
-				</div>
-				<div class="write-input">
-					<textarea autofocus="autofocus"></textarea>
-				</div>
-				<div class="send">
-					<div class="send-btn">发送</div>
-					<span>按下Ctrl+Enter换行</span>
-				</div>
-			</div>
-		</div>
+		<iframe id="J_page" border="0" scroll="no" width="100%" height="100%"></iframe>
 	</div>
+	
+	
+	<!-- 用户操作 添加 好友 -->
 	<div class="tanchu1 tanchu">
 		<div class="add">
 			<div class="search-ico"></div>
@@ -415,16 +138,56 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div class="add-button">添加</div>
 		<div class="close-button"></div>
 	</div>
+	<!-- 用户操作 添加 好友 -->
 	<div class="tanchu2 tanchu">
 		<div class="back">您确定要退出吗？</div>
-		<a class="back-sure"  href="/user!logout.action">离开</a>
+		<a class="back-sure"  href="http://www.w3school.com.cn">离开</a>
 		<div class="back-cancel">取消</div>
 		<div class="close-button"></div>
 	</div>
 	<div class="tanchu-mengban"></div>
 </div>
-	
-	
 </div>
-</body>  
+<script>
+var current_fri;   // 全局变量，后面使用
+$( window ).on( "load", function(){
+	//先把取出后台传过来的数据，list3好友列表填满
+	var chat_friend=$("#model").clone();     
+  	var arr_length=data_all.length;
+	for(var i=0;i<arr_length;i++){
+		var friend_data=data_all[i];   //把Json数组中的每个Json对象取出来
+		chat_friend.find(".chat-name").text(friend_data.nick_name)
+		$(".chat-list3").append(chat_friend.clone().show());
+	}
+	
+	//判断点那个按钮，相应的显示菜单
+	$(".icon").click(function(){						
+		
+		if ($(this).hasClass("ico-first")){
+			$(".chat-list1").show();
+			$(".chat-list1").siblings().hide();
+		}else if($(this).hasClass("ico-second")){
+			$(".chat-list2").show();
+			$(".chat-list2").siblings().hide();
+		}else{
+			$(".chat-list3").show();
+			$(".chat-list3").siblings().hide();
+		};
+	});
+	
+	//点第三个列表中的人，出现页面二，好友的详细信息。
+	$(".chat-list3 a").click(function(){    	
+		var url=$(this).attr("target");
+		current_fri=$(this);
+		$("#J_page").attr("src",url);
+		$(this).parent().addClass("actived");
+		$(this).parent().siblings().removeClass("actived");
+	});
+
+});
+
+	
+</script>
+</body>
 </html>
+

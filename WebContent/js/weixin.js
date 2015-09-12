@@ -16,7 +16,7 @@ $( window ).on( "load", function(){
 			}, 
 			async:false       //取消异步，可以把data数据取出，并且保持原格式。
 		});
-		//console.log(data_all);
+	console.log(data_all);
 		
 		//var arr_length=data_all.length;
 		//console.log(data_all);
