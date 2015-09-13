@@ -8,7 +8,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	
 	<link rel="shortcut icon" href="images/weixin.ico"/>
 	<link rel="stylesheet" href="css/weixin.css" type="text/css" />
 	<script type="text/javascript" src="js/jquery.js"></script> 
@@ -65,6 +64,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div class="chat-body-person">
 				<div class="all-chat chat-list1">      <!-- 正在对话列表 -->
 					<div class="chat">
+						<div class="chat-info example">
+							<div class="chat-pic">
+								<img src="images/photo2.jpg" class="person-pic"/>
+							</div>
+							<div class="chat-name">张森</div>
+							<div class="chat-option"></div>
+							<div class="last-chat">最新消息</div>
+						</div>
 						<div class="chat-info">
 							<div class="chat-pic">
 								<img src="images/photo2.jpg" class="person-pic"/>

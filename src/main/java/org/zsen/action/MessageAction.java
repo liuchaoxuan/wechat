@@ -34,12 +34,18 @@ public class MessageAction extends BaseAction{
 
 	private static final long serialVersionUID = 816078129077987088L;
 	private DefaultMessageContainer mc;
-	private String msg;
+	private String text;
+	private String to;
 
 	
 	public void send()
 	{
-		TextMessageImpl m=JSON.parseObject(msg, TextMessageImpl.class);
+		User u=(User)getSession().getAttribute(CONSTANT.USER_USER);
+		TextMessageImpl m=new TextMessageImpl();
+		System.out.println(text);
+		m.setMessageTo(to);
+		m.setText(text);
+		m.setMessageFrom(u.getId());
 		m.setType(CONSTANT.MESSAGE_TYPE_USER_TEXT);
 		mc.sendMessage(m);
 	}
@@ -58,11 +64,21 @@ public class MessageAction extends BaseAction{
 	public void setMc(DefaultMessageContainer mc) {
 		this.mc = mc;
 	}
-	public String getMsg() {
-		return msg;
+
+	public String getText() {
+		return text;
 	}
-	public void setMsg(String msg) {
-		this.msg = msg;
+
+	public void setText(String text) {
+		this.text = text;
 	}
-	
+
+	public String getTo() {
+		return to;
+	}
+
+	public void setTo(String to) {
+		this.to = to;
+	}
+
 }

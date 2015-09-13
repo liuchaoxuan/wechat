@@ -1,5 +1,7 @@
-var data_all;      //定义一个全局变量，用来盛放返回的data
-var data_mine;	   //定义一个全局变量，用来盛放返回的用户自己的信息
+var data_all;      //定义一个全局变量，用来盛放返回的好友列表信息
+var now_message;   //定义一个全局变量，用来盛放返回的好友发送给当前用户的信息。
+var current_id;
+//var data_mine;	   //定义一个全局变量，用来盛放返回的用户自己的信息
 $( window ).on( "load", function(){
 	//var chat_friend=$("#model").clone();
 	var append_t=$(".example").clone();
@@ -17,20 +19,27 @@ $( window ).on( "load", function(){
 			}, 
 			async:false       //取消异步，可以把data数据取出，并且保持原格式。
 		});
+	//console.log(data_all);
 	
-	$.ajax({ 
-	    type: "POST", 	
-		url: "user!getUserInfo.action",
-		dataType: "json",
-		success: function(data){
-			data_mine=data;        //把返回的Json对象取出
-		},
-		error: function(jqXHR){     
-			alert("发生错误：" + jqXHR.status);  
-		}, 
-		async:false       //取消异步，可以把data数据取出，并且保持原格式。
-	});
-	console.log(data_mine);
+	//设置定时器，定时取数据。
+	var clock=function(){
+		$.ajax({ 
+		    type: "POST", 	
+			url: "message!getMessage.action",
+			dataType: "json",
+			success: function(data){
+				now_message=data;  
+				
+			},
+			error: function(jqXHR){     
+				alert("发生错误：" + jqXHR.status);  
+			}, 
+			async:false       
+		});
+		//console.log(now_message);
+	}; 
+	window.setInterval(clock,5000);
+	//console.log(data_mine);
 		
 		//var arr_length=data_all.length;
 		//console.log(data_all);
@@ -72,8 +81,8 @@ $( window ).on( "load", function(){
 	//第四个页面是好友详细信息页面，有发送消息按钮
 		
 	
-	//点击第一个列表，出现page3,与好友的聊天窗口
-	$(".wrap").on( "click",".chat-list1 .chat-info",function(){
+//点击第一个列表，出现page3,与好友的聊天窗口
+/*	$(".wrap").on( "click",".chat-list1 .chat-info",function(){
 		$(".page3").siblings().hide();
 		$(".page3").find(".now-person").html($(this).find("img").clone());
 		$(".page3").find(".others-img").html($(this).find("img").clone());
@@ -92,7 +101,7 @@ $( window ).on( "load", function(){
 	$(".wrap").on( "click",".ico-first",function(){
 		$(".page1").siblings().hide();
 		$(".page1").show();
-	}); 
+	}); */
 	
 	/*//点第三个列表中的人，出现页面二，好友的详细信息。	
 	$(".wrap").on( "click",".chat-list3 .chat-info",function(){
@@ -133,7 +142,7 @@ $( window ).on( "load", function(){
 	
 	
 	//设置定时器，定时取数据。
-	var clock=function(){
+	/*var clock=function(){
 		var myfriend_list=$.ajax({ 
 		    type: "POST", 	
 			url: "user!getFriendList.action",
@@ -147,7 +156,7 @@ $( window ).on( "load", function(){
 			}, 
 			async:false       
 		});
-	}; 
+	}; */
 	//window.setInterval(clock,1000);
 	//点击与好友对话框中的下拉按钮，可以slide出好友的头像等信息。
 	$(".wrap").on( "click",".pull-down",function(){
@@ -156,7 +165,7 @@ $( window ).on( "load", function(){
 	}); 
 	
 	//与好友聊天框的   发送  按钮，绑定onclick事件。
-	/*$(".wrap").on( "click",".send-btn",function(){
+	/*$(".wrap").on( "click",".send-btn2gg",function(){
 	  
 		 
 		//console.log(append_t);

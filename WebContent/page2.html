@@ -28,7 +28,7 @@
 					<div class="name-sex">
 						<span class="firend-name">张汉阳</span><span class="firend-sex">女</span>
 					</div>
-					<div class="faith">时间不等人</div>
+					<div class="fri-id"></div>
 					<div class="tip-area">
 						<div class="tip-area-content">
 							<div class="tip">备注：<span class="tip">张汉阳</span></div>
@@ -43,8 +43,10 @@
 	<script>
 	$(function(){
 		
-		var current_info=window.parent.current_fri;  //先把从父窗口list3列取进来的数据存好
-	    var data_all=window.parent.data_all;
+		var current_info=window.parent.current_fri;  //先把从父窗口list3列取进来的数据存好,当前聊天的好友信息
+	    var data_all=window.parent.data_all;         
+	    
+	   // console.log(data_all);
 		//根据列表中的好友头像，改变好友详细信息中的头像
 		$(".friend-photo").html(current_info.find("img").clone().css("height","110px"));
 		//根据列表中好友的昵称，修改好友详细信息中的昵称
@@ -58,11 +60,18 @@
 			if(data_all[i].nick_name==fri_now){
 				$(".name-sex>.firend-sex").html(data_all[i].phone_Num);
 				$(".xian").html(data_all[i].nick_name);
+				$(".fri-id").html(data_all[i].id);
+				window.parent.current_id=data_all[i].id;
 			}
 		}
 		
 		
-		$(".chat-button").click(function(){   
+		$(".chat-button").click(function(){
+			var now_chat=window.parent.$(".example").clone();
+			now_chat.removeClass("example").find(".chat-name").text(fri_now);
+			window.parent.$(".chat-list1").prepend(now_chat);
+			window.parent.$(".chat-list1").show();
+			window.parent.$(".chat-list1").siblings().hide(); 
 			window.parent.$("#J_page").attr("src","page3.html");
 		});
 		
