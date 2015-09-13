@@ -24,4 +24,5 @@ public class CONSTANT {
 	 public static String USER_USER="user";
 	 public static String RELATION_NOTFOUND="not found relation";
 	 public static String ACTION_LOGIN="action_login";
+	 public static String MESSAGE_TYPE_USER_TEXT="userTextMessage";
 }

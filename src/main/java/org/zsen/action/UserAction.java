@@ -79,18 +79,16 @@ public class UserAction extends BaseAction {
 	 */
 	public void getFriendList() {
 		User u = (User) getSession().getAttribute(CONSTANT.USER_USER);
-		String outstr = JSON.toJSONString(u)+JSON.toJSONString(um.getAllFriends(u.getId()));//发送user和 friendList
-		PrintWriter out;
-		try {
-			out = getWriter();
-			out.println(outstr);
-			out.flush();
-			out.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		String outstr = JSON.toJSONString(um.getAllFriends(u.getId()));//发送friendList
+		printOut(outstr);
 
 	}
+	public void getUserInfo()
+	{
+		User u = (User) getSession().getAttribute(CONSTANT.USER_USER);
+		printOut(JSON.toJSONString(u));
+	}
+	
 
 	/**
 	 * 

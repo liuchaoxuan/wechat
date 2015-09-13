@@ -8,6 +8,7 @@
 */ 
 package org.zsen.message;
 
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -42,6 +43,7 @@ public class DefaultMessageContainer extends MessageContainer {
 	public void sendMessage(Message msg) {
 		// TODO Auto-generated method stub
 		setPrimaryKey(msg);
+		msg.setMessageDate(new Date()); //设置消息发送的时间
 		super.sendMessage(msg);
 	}
 
