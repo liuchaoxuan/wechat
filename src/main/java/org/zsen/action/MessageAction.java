@@ -40,6 +40,7 @@ public class MessageAction extends BaseAction{
 	
 	public void send()
 	{
+
 		TextMessageImpl m=new TextMessageImpl();
 		User u=(User)getSession().getAttribute(CONSTANT.USER_USER);
 		m.setMessageFrom(u.getId());

@@ -19,7 +19,7 @@
     	<div class="page page3">
 			<div class="chat-title">
 				<div class="chat-center">
-					<span class="chat-friend">王婷</span>
+					<span class="chat-friend"></span>
 					<span class="pull-down"></span>
 				</div>
 			</div>
@@ -30,7 +30,11 @@
 			<div class="chat-content">
 				<div class="chat-scroll" style="overflow:auto;margin: 0 20px;">
 					<div class="chat-body">
-						<div class="self example">
+						<div class="self example1 example">
+							<div class="photo"></div>
+							<div class="content"></div>
+						</div>
+						<div class="others example2 example">
 							<div class="photo"></div>
 							<div class="content"></div>
 						</div>
@@ -44,24 +48,8 @@
 							<img src="images/small2.jpg" class="self-pic"/>
 							<div class="content">在啊</div>
 						</div>
-						<div class="self">
-							<img src="images/small2.jpg" class="self-pic"/>
-							<div class="content">问你一个问题呗...</div>
-						</div>
-						<div class="others">
-							<div class="others-img">
-								<img src="images/photo1.jpg" class="person-pic"/>
-							</div>
-							<div class="content">问吧</div>
-						</div> 
-						<div class="others">
-							<div class="others-img">
-								<img src="images/photo7.jpg" class="person-pic"/>
-							</div>
-							<div class="content">什么问题？</div>
-						</div>
 					</div>	
-					<div id="msg_end" style="height:0px;width:0px;background:red;"></div>
+					<div id="msg_end" style="height:5px;width:5px;background:red;"></div>
 				</div>
 			</div>
 			<div class="write"  style="margin: 0 20px;">
@@ -84,31 +72,56 @@
 	</div>
 	<script>
 	$(function(){
-		var append_t=$(".example").clone();
-	
+		var current_info=window.parent.current_fri;  //先把从父窗口list3列取进来的数据存好
+	    var data_all=window.parent.data_all;			//list3列表中的信息
+		
+       // console.log(window.parent.current_id);         
+		//根据列表中好友的昵称，修改聊天窗口的昵称
+		var fri_now=current_info.find('.chat-name').text()
+		$(".chat-friend").html(fri_now);
+		
+		//用户自己的聊天模式,用户点消息发送，消息提交给后台。
+		var append_t=$(".example1").clone();
+		var append_fri=$(".example2").clone();
+		var tofriend="zhangyaxin";
 		$(".send-btn").click(function(){
 			var text_content=$(this).parents(".write").find("textarea").val();  //取出文本框中的内容
-			console.log(text_content);
+			
 			if(text_content==""){	
 			}else{
 				$.ajax({ 
 			    	type: "POST", 	
 					url: "message!send.action",
 					data: {
-					message: text_content
+					text:text_content,
+					to:tofriend
 				},
 				dataType: "json" 
 			});
+			};
 			//把文本框中的内容装好，通话内容最后。
 			append_t.removeClass("example").find(".content").text(text_content)
 			$(".chat-body").append(append_t.clone());
-			msg_end.scrollIntoView(); 
+			//msg_end.scrollIntoView();                   // 滚轮自动滚到合适位置哦
 			//初始化文本框，使之内容清空，并且获取光标
 			$(this).parents(".write").find("textarea").val("");
 			$(this).parents(".write").find("textarea").focus();
 		
-		}
 	});
+	
+	//定时去取父window接受到的json数组，然后进行处理，放入对话框中
+	 var clock1=function(){
+		var chat_info_content=window.parent.now_message
+		for(var i=0;i<chat_info_content.length;i++){
+			 var friend_data=chat_info_content[i];   //把Json数组中的每个Json对象取出来
+			 if(friend_data.messageFrom==window.parent.current_id){
+			 	//console.log(friend_data.text);
+				append_fri.removeClass("example").find(".content").text(friend_data.text);
+				$(".chat-body").append(append_fri.clone());   
+			}  
+		}
+	}; 
+	window.setInterval(clock1,5000); 
 	
 	});
 	</script>
